@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/card/{card_id}',[\App\Http\Controllers\Client\CardController::class , 'show'])->name('show-card');
+
+
+//Admin Panel
+Route::resource('/admin/card', \App\Http\Controllers\Admin\CardController::class);
