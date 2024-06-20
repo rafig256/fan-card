@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,4 @@ Route::get('/card/{card_id}',[\App\Http\Controllers\Client\CardController::class
 
 
 //Admin Panel
-Route::resource('/admin/card', \App\Http\Controllers\Admin\CardController::class);
+Route::resource('/admin/card', CardController::class);

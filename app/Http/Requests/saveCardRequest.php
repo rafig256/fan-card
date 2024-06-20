@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class saveCardRequest extends FormRequest
@@ -17,19 +18,19 @@ class saveCardRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
             'name' => 'required|string',
             'last_name' => 'required|string',
-            'national_code' => 'required|string',
-            'phone' => 'required|regex:^(9|09)\d{9}$',
+            'national_code' => 'required|string|unique:cards,national_code',
+            'phone'=>['nullable' , 'regex:^(9|09)\d{9}$^','unique:cards,phone'],
             'location' => 'nullable|string',
             'sex' => "in:male,female",
             'committee' => 'nullable|string',
-            'image' => 'file|size:1024|mimes:jpeg,png,jpg,bmp',
+            'image' => 'file|max:1024|mimes:jpeg,png,jpg,bmp',
         ];
     }
 }

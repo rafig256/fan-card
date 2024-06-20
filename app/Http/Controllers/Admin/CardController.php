@@ -5,16 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\saveCardRequest;
 use App\Models\Card;
+use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
+    use FileUploadTrait;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
+        $cards = Card::all();
+        return view('admin.pages.card.index' ,compact('cards'));
     }
 
     /**
@@ -30,7 +33,13 @@ class CardController extends Controller
      */
     public function store(saveCardRequest $request)
     {
-        Card::query()->create([
+        if ($request->hasFile('image')){
+            $imagePath = $this->uploadImage($request , 'image' );
+        }
+        else{
+            $imagePath = NULL;
+        }
+        $card = Card::query()->create([
             'name' => $request->name,
             'last_name' => $request->last_name,
             'national_code' => $request->national_code,
@@ -38,8 +47,16 @@ class CardController extends Controller
             'location' => $request->location,
             'sex' => $request->sex,
             'committee' => $request->committee,
+            'image' => $imagePath,
             'status' => true
         ]);
+        if ($card){
+            toastr()->success('با موفقیت ذخیره شد');
+            return to_route('card.index');
+        }else{
+            toastr()->error('خطا در ذخیره اطلاعات');
+            return to_route('card.index');
+        }
     }
 
     /**
