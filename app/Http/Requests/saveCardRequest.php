@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\NationalCode;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +26,7 @@ class saveCardRequest extends FormRequest
         return [
             'name' => 'required|string',
             'last_name' => 'required|string',
-            'national_code' => 'required|string|unique:cards,national_code',
+            'national_code' => ['required','unique:cards',new NationalCode()],
             'phone'=>['nullable' , 'regex:^(9|09)\d{9}$^','unique:cards,phone'],
             'location' => 'nullable|string',
             'sex' => "in:male,female",
