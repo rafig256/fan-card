@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/card/{card_id}',[\App\Http\Controllers\Client\CardController::class , 'show'])->name('show-card');
+Route::get('/card/{id}',[\App\Http\Controllers\Client\CardController::class , 'show'])->name('show-card');
 
 
 //Admin Panel
