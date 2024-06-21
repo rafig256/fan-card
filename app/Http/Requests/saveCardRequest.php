@@ -34,4 +34,18 @@ class saveCardRequest extends FormRequest
             'image' => 'file|max:1024|mimes:jpeg,png,jpg,bmp',
         ];
     }
+
+    public function messages():array
+    {
+        return [
+            'name.required' => 'درج نام الزایمی است',
+            'name.string' => 'نام باید به صورت کاراکتر های حروفی باشد',
+            'last_name.required' => 'درج نام خانوادگی الزامی است',
+            'phone.regex' => 'لطفا یک شماره موبایل صحیح وارد کنید',
+            'phone.unique' => 'این شماره موبایل قبلا در پایگاه داده ثبت شده است',
+            'national_code.required' => 'کد ملی الزامی است',
+            'national_code.unique' => 'این کد ملی قبلا ثبت نام شده است',
+            'national_code.NationalCode' => 'کد ملی صحیح نیست',
+        ];
+    }
 }

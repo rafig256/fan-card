@@ -17,17 +17,17 @@ class NationalCode implements ValidationRule
     {
         if(!preg_match('/^[0-9]{10}$/',$value))
             //تعداد ارقام صحیح نیست
-            $fail(trans('register.national_code_invalid'));
+            $fail(trans('تعداد ارقام صحیح نیست'));
         for($i=0;$i<10;$i++)
             if(preg_match('/^'.$i.'{10}$/',$value))
                 //ارقام یکسان استفاده شده است
-                $fail(trans('register.national_code_invalid_digit'));
+                $fail(trans('کد ملی با ارقام یکسان استفاده شده است'));
         for($i=0,$sum=0;$i<9;$i++)
             $sum+=((10-$i)*intval(substr($value, $i,1)));
         $ret=$sum%11;
         $parity=intval(substr($value, 9,1));
         if(!($ret<2 && $ret==$parity) && !($ret>=2 && $ret==11-$parity))
             //طبق الگوی کد ملی نیست
-            $fail(trans('register.national_code_not_exist'));
+            $fail('کد ملی صحیح نیست');
     }
 }
