@@ -5,17 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap-reboot.rtl.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/vazir-ui.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/dashboard.css')}}">
 
     <!--    toastr  -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" class="rel">
-{{--    TODO: جایگذاری فایل از هاست--}}
+    {{--    TODO: جایگذاری فایل از هاست--}}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.rtl.min.css')}}" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('admin/assets/css/main-box.css')}}" crossorigin="anonymous">
+
 
     <!--<link rel="stylesheet" href="assets/css/">-->
     <script src="{{asset('admin/assets/js/jquery-3.6.0.min.js')}}"></script>

@@ -51,8 +51,12 @@ class CardController extends Controller
             'status' => true
         ]);
         if ($card){
-            toastr()->success('با موفقیت ذخیره شد');
-            return to_route('card.index');
+            if ($request->save){
+                toastr()->success('با موفقیت ذخیره شد');
+                return to_route('card.index');
+            }elseif ($request->save_new){
+                return redirect()->route('card.create');
+            }
         }else{
             toastr()->error('خطا در ذخیره اطلاعات');
             return to_route('card.index');

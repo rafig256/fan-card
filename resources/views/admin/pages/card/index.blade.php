@@ -1,7 +1,8 @@
 @extends('admin.layout.master')
-
+@section('title','لیست هواداران')
 @section('content')
     <div class="raf-main-box">
+        <div class="col-12"><a href="{{route('card.create')}}" class="btn btn-info mb-lg-3">ثبت هوادار جدید</a> </div>
         <table class="table table-striped">
             <tr>
                 <td>شناسه</td>
