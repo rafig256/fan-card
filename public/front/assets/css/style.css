@@ -5,6 +5,29 @@
 
 }
 
+@font-face {
+    font-family: samim;
+    src: url('/fonts/Samim.eot');
+    src: url('/fonts/Samim.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/Samim.woff2') format('woff2'),
+    url('/fonts/Samim.woff') format('woff'),
+    url('/fonts/Samim.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: samim;
+    src: url('/fonts/Samim-Bold.eot');
+    src: url('/fonts/Samim-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/Samim-Bold.woff2') format('woff2'),
+    url('/fonts/Samim-Bold.woff') format('woff'),
+    url('/fonts/Samim-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+body{
+    font-family: 'samim', sans-serif;
+}
+
 .card-front:before {
 
   content: "";
@@ -59,7 +82,7 @@
 
 .card-front * {
 
-  font-family: PT Mono, monospace;
+  font-family: samim, PT Mono, monospace;
 
 }
 
@@ -97,7 +120,7 @@
 
 .number {
 
-  font-family: PT Mono, monospace;
+  font-family: samim, PT Mono, monospace;
   text-align: center;
   font-size: clamp(1rem, 8vw - 0.5rem, 2.5rem);
   letter-spacing: 0.025em;
@@ -225,7 +248,7 @@ body {
 
   color: white;
   background: #333844;
-  font-family: "Heebo", sans-serif;
+  font-family: samim, "Heebo", sans-serif;
   background: url(/front/assets/img/pexels-photo-3612932.jpeg);
   background-size: cover;
   background-position: center;

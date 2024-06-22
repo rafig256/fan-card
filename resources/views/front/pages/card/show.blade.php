@@ -16,7 +16,7 @@
             نام: {{$card->name." ".$card->last_name}}
         </label>
         <label class="name" for="cardHolder">
-            ستاد مشگین شهر {{$card->location ? ' - '.$card->location : ''}}
+             مشگین شهر {{$card->location ? ' - '.$card->location : ''}}
         </label>
         <label class="expiry" for="expiryMonth" >
             {{$card->committee ? 'کمیته '.$card->committee : 'کمیته ی مردمی'}}
